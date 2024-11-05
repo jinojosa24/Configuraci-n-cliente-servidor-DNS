@@ -26,4 +26,5 @@ Este archivo `docker-compose.yml` configura un entorno con dos (contenedores): u
 - **networks.bind9**: Define la red `bind9` con el controlador `bridge`, asignándole también el nombre `bind9` en Docker.
 
 dig: Es una herramienta de consulta de DNS que envía solicitudes al servidor DNS especificado.
+
 @127.30.0.3: Especifica la dirección IP del servidor DNS al que queremos hacer la consulta. En este caso, 127.30.0.3 sería la IP del servidor DNS, que puede ser el servidor BIND9 en tu configuración.
