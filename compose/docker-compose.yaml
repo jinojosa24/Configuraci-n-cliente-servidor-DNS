@@ -1,0 +1,30 @@
+services:
+  bind9:
+    image: ubuntu/bind9  # Usamos a imaxe oficial de BIND9
+    container_name: bind9 # Nome do contedor
+    ports:
+      - "54:54/tcp"  # Expor o porto 53 (TCP) do host ao contedor
+      - "54:54/udp"  # Expor o porto 53 (UDP) do host ao contedor
+    networks:
+      - bind9
+      
+    volumes:
+      - ./conf:/home/jose/compose/conf  # Directorio local para configuración de BIND
+      - ./zonas:/home/jose/compose/zonas  # Directorio local para datos de BIND
+    restart: always
+    
+  cliente:
+    container_name: cliente
+    image: alpine:latest
+    tty: true
+    stdin_open: true
+    # configuramos para que el cliente use nuestro dns
+    dns:
+      - 172.20.0.2
+    networks:
+      bind9:
+
+networks:
+  bind9:
+    driver: bridge
+    name: bind9
