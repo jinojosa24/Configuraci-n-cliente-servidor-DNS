@@ -27,4 +27,4 @@ Este archivo `docker-compose.yml` configura un entorno con dos (contenedores): u
 
 dig: Es una herramienta de consulta de DNS que envía solicitudes al servidor DNS especificado.
 
-@127.30.0.3: Especifica la dirección IP del servidor DNS al que queremos hacer la consulta. En este caso, 127.30.0.3 sería la IP del servidor DNS, que puede ser el servidor BIND9 en tu configuración.
+Se accede al contenedor utilizando el comando `docker exec -it *nombre del contenedor*` una vez dentro descargamos el dig primero se actualizara utilizando `apk update` y luego `apk add bind-tools ` una vez descargado esto dentro del contenedor se hace la consulta utilizando el `dig @*IP*` y nos mostrara la informacion.
